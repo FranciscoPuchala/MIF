@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Avatars: cada usuario solo puede subir/leer el suyo
+    match /avatars/{userId}.jpg {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Fotos de posts: cualquier usuario autenticado puede subir
+    match /posts/{restaurantId}/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Logos de restaurantes
+    match /restaurants/{restaurantId}/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}

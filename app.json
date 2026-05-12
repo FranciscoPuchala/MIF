@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "MIF",
+    "slug": "mif",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "mif",
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": ""
+        }
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "MIF necesita acceso a tus fotos para publicar imágenes.",
+          "cameraPermission": "MIF necesita acceso a la cámara para tomar fotos."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
